@@ -22,6 +22,7 @@ app.use(bodyparser.json());
 
 require("./app/Routes/user.routes")(app)
 require("./app/Routes/placement.routes")(app)
+require("./app/Routes/academics.routes")(app)
 
 
 

@@ -13,7 +13,7 @@ exports.findAll=(req,res)=>{
 
 exports.create=(req,res)=>{
     const palcement=new PlacementModel({
-        topic:req.body.title,
+        topic:req.body.topic,
         description:req.body.description,
         img:req.body.img
     })

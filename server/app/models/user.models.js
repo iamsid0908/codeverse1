@@ -12,6 +12,9 @@ const UserSchema=new mongoose.Schema({
     },
     place:[
         {type: mongoose.Schema.Types.ObjectId, ref:'place'}
+    ],
+    academic:[
+        {type: mongoose.Schema.Types.ObjectId, ref:'academic'}
     ]
     
 })
