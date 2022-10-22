@@ -1,6 +1,6 @@
 import { useEffect, useState} from "react"
 import React from 'react'
-
+import "./Placement.css"
 function Placement() {
     const [placement, setPlacement] = useState([]);
     const [topic, setTopic] = useState("");
@@ -52,7 +52,7 @@ const handleChange=(e)=>{
   return (
     <>
     <div>
-        <div>
+        <div className="place">
             <lable>Topic</lable>
             <input type="text" placeholder="Topic" onChange={(e)=>{
                 setTopic(e.target.value);
