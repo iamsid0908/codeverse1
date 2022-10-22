@@ -1,4 +1,5 @@
 const PlacementModel =require("../models/placement.models")
+const userModels =require("../models/user.models")
 
 exports.findAll=(req,res)=>{
     PlacementModel.find({})
@@ -11,19 +12,37 @@ exports.findAll=(req,res)=>{
     })
 }
 
-exports.create=(req,res)=>{
+exports.create= async (req,res)=>{
+    const userId=req.params.id;
+
+    const userById = await userModels.findById(userId);
+    console.log(userId);
+
+    if(!userById){
+       return res.status(404).send({message:"Invalid owner id"});
+    }
     const palcement=new PlacementModel({
         topic:req.body.topic,
         description:req.body.description,
-        img:req.body.img
+        img:req.body.img,
+        owner:userId
     })
-    palcement.save()
-    .then(data=>{
-        res.send(data);
-    })
-    .catch(err=>{
-        res.status(500).send({
-            message:err.message
-        })
-    })
+    const data = await palcement.save();
+    userById.place.push(palcement);
+    await userById.save();
+
+    return res.send(userById);
+
+    // .then(data=>{
+    //     res.send(data);
+    // })
+    // .catch(err=>{
+    //     res.status(500).send({
+    //         message:err.message
+    //     })
+    // })
+
+}
+exports.createpost=(req,res)=>{
+
 }

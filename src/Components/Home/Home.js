@@ -10,6 +10,8 @@ function Home() {
         <Link to='/placement'> <li>Placement</li></Link>
         <Link to='/coding'> <li>Coding</li></Link>
         <Link to='/academics'> <li>Academics</li></Link>
+        <Link to='/login'> <li>Login</li></Link>
+        <Link to='/register'> <li>Register</li></Link>
        
         
        </ul>

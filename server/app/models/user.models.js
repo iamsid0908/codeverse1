@@ -2,12 +2,15 @@ const mongoose=require('mongoose')
 
 const UserSchema=new mongoose.Schema({
     name:{
+        require:true,
         type:String
     },
     email:{
+        require:true,
         type:String
     },
-    hasedPassword:{
+    hashedPassword:{
+        require:true,
         type:String
     },
     place:[
